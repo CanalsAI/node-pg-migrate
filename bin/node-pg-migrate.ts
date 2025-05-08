@@ -4,7 +4,11 @@ import type { DotenvConfigOptions } from 'dotenv';
 // Import as node-pg-migrate, so tsup does not self-reference as '../dist'
 // otherwise this could not be imported by esm
 // @ts-ignore: when a clean was made, the types are not present in the first run
-import { default as migrationRunner, Migration } from 'node-pg-migrate';
+import {
+  default as migrationRunner,
+  Migration,
+  PG_MIGRATE_LOCK_ID,
+} from 'node-pg-migrate';
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
@@ -15,7 +19,6 @@ import ConnectionParameters from 'pg/lib/connection-parameters.js';
 import yargs from 'yargs/yargs';
 import type { RunnerOption } from '../src';
 import type { FilenameFormat } from '../src/migration';
-import { PG_MIGRATE_LOCK_ID } from '../src/runner';
 
 process.on('uncaughtException', (err) => {
   console.error(err);
