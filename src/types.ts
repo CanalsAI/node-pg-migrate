@@ -842,6 +842,11 @@ export interface RunnerOptionConfig {
   noLock?: boolean;
 
   /**
+   * Value to use for the lock.
+   */
+  lockValue?: number;
+
+  /**
    * Mark migrations as run without actually performing them (use with caution!).
    */
   fake?: boolean;
