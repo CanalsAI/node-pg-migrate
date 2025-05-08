@@ -261,7 +261,7 @@ export type {
   RenameViewFn,
   ViewOptions,
 } from './operations/views';
-export { runner as default, runner } from './runner';
+export { PG_MIGRATE_LOCK_ID, runner as default, runner } from './runner';
 export { PgType } from './types';
 export type { MigrationBuilder, RunnerOption } from './types';
 export { isPgLiteral, PgLiteral } from './utils';
